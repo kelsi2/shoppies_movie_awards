@@ -24,6 +24,11 @@ export default function SearchBar(props) {
           value={value}
           onChange={e => setValue(e.target.value)}
         />
+        {props.loading && props.term ? 
+          <i className="fas fa-sync"></i>
+          :
+          ''
+        }
       </form>
     </section>
   )

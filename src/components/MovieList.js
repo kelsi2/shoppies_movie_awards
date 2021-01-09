@@ -9,7 +9,7 @@ export default function MovieList(props) {
           <h2>{movie.Title}</h2>
           <h6>{movie.Year}</h6>
         </section>
-    </>
-      ))
+      </>
+    ))
   )
 }
