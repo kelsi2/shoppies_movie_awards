@@ -1,13 +1,15 @@
 import '../styles/App.css';
 import Search from './Search';
 
-function App() {
+function App(props) {
   return ( 
     <div className = "App" >
       <header className = "App-header" >
         <h1> Welcome to the Shoppies </h1> 
       </header>
-    <Search />
+      <main>
+        <Search />
+      </main>
     </div>
   );
 }

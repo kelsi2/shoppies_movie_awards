@@ -27,12 +27,19 @@ export default function Search(props) {
 
       getMovies(term);
     }, [term]);
+    console.log(results)
+    console.log(props.nominated)
 
   return (
     <>
       <main>
         <Searchbar term={term} loading={loading} onSearch={(term) => setTerm(term)} />
-        <MovieList key={props.imdbID} results={results} />
+        <div className="search_results">
+          <MovieList results={results} />
+        </div>
+        <div className="nominated_movies">
+          {props.nominated ? <MovieList results={props.nominated} /> : 'You haven\'t nominated any movies yet! Nominate up to 5 of your favorites for the Shoppies!'}
+        </div>
       </main>
     </>
   );
