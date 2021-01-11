@@ -1,6 +1,15 @@
 import noImage from '../images/noImage.png';
 
 export default function Nominations(props) {
+  if (props.movies.length <= 0) {
+    return (
+      <>
+        <h3>Nominate up to 5 of your favorite movies for the Shoppies!</h3>
+        <h4>Get started by searching by movie title at the top.</h4>
+      </>
+    )
+  }
+
   return (
     props.movies.map((movie) => (
       <>
@@ -18,7 +27,7 @@ export default function Nominations(props) {
           </div>
         </section>
         <div className="btn">
-          <button onClick={() => props.handleRemoveClick(movie)}>Remove nomination <i class="fas fa-trash-alt"></i></button>
+          <button onClick={() => props.handleRemoveClick(movie)}>Remove nomination <i className="fas fa-trash-alt"></i></button>
         </div>
       </>
   )))
