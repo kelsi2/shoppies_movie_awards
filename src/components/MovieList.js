@@ -12,7 +12,11 @@ export default function MovieList(props) {
           </div>
         </section>
         <div>
-        <button onClick={() => props.handleNominationClick(movie)}>Nominate <i className="fas fa-heart"></i></button>
+        {props.nominated.length >= 5 || props.nominated.includes(movie) ? 
+          <button disabled>Nominate <i className="fas fa-heart"></i></button>
+          :
+          <button onClick={() => props.handleNominationClick(movie)}>Nominate <i className="fas fa-heart"></i></button>
+        }
         </div>
       </>
     ))
