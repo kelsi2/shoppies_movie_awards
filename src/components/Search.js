@@ -40,6 +40,13 @@ export default function Search() {
     }
   }
 
+  const removeNomination = (movie) => {
+    const newNominationList = nominated.filter((nomination) => 
+      nomination.imdbID !== movie.imdbID
+    );
+    setNominated(newNominationList);
+  }
+
   return (
     <>
       <main>
@@ -48,7 +55,7 @@ export default function Search() {
           <MovieList movies={movies} handleNominationClick={addNomination} nominated={nominated} />
         </div>
         <div className="nomination-results">
-          <Nominations movies={nominated} />
+          <Nominations movies={nominated} handleRemoveClick={removeNomination} />
         </div>
       </main>
     </>
