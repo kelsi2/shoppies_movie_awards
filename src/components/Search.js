@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import Searchbar from './Searchbar';
 import MovieList from './MovieList';
 import Nominations from './Nominations';
+import MaxNominations from './MaxNominations';
 
 export default function Search() {
   // Set state of search field and search results
@@ -51,6 +52,7 @@ export default function Search() {
     <>
       <main>
         <Searchbar term={term} loading={loading} onSearch={(term) => setTerm(term)} />
+        <MaxNominations nominated={nominated} />
         <div className="search-results">
           <MovieList movies={movies} handleNominationClick={addNomination} nominated={nominated} />
         </div>
