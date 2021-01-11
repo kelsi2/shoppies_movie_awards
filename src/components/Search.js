@@ -14,7 +14,7 @@ export default function Search() {
   
   useEffect(() => {
     // Append search term "t=<movie title>" to API_URL to perform a search
-    const API_URL = `http://www.omdbapi.com/?s=${term}&apikey=eb5b6c31`;
+    const API_URL = `http://www.omdbapi.com/?s=${term}&type=movie&apikey=eb5b6c31`;
     
     // Request movie data in json form and setResult state
     const getMovies = async() => {

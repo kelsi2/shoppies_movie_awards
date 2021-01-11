@@ -5,7 +5,7 @@ export default function SearchBar(props) {
   // Start with empty search value
   const [value, setValue] = useState('');
   // Debounce search for 400 ms before sending a request
-  const term = useDebounce(value, 400);
+  const term = useDebounce(value, 700);
   // Perform the search only if something in the request term changes
   const onSearch = useCallback(props.onSearch, [term]);
 
