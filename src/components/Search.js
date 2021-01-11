@@ -1,8 +1,9 @@
 import {useEffect, useState} from 'react';
 import Searchbar from './Searchbar';
 import MovieList from './MovieList';
+import Nominations from './Nominations';
 
-export default function Search(props) {
+export default function Search() {
   // Set state of search field and search results
   const [term, setTerm] = useState('');
   const [movies, setMovies] = useState([]);
@@ -43,8 +44,11 @@ export default function Search(props) {
     <>
       <main>
         <Searchbar term={term} loading={loading} onSearch={(term) => setTerm(term)} />
-        <div className="search_results">
+        <div className="search-results">
           <MovieList movies={movies} handleNominationClick={addNomination} nominated={nominated} />
+        </div>
+        <div className="nomination-results">
+          <Nominations movies={nominated} />
         </div>
       </main>
     </>
