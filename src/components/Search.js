@@ -5,9 +5,18 @@ import MovieList from './MovieList';
 export default function Search(props) {
   // Set state of search field and search results
   const [term, setTerm] = useState('');
-  const [results, setResults] = useState([]);
+  const [movies, setMovies] = useState([]);
   // Loading state for search results, set to false until search is in progress
   const [loading, setLoading] = useState(false);
+  const [nominated, setNominated] = useState([]);
+
+  const addNomination = (movie) => {
+    // Copy new nomination to the array
+    const nominationList = [...nominated, movie];
+    if (nominated.length <= 5 && !nominated.includes(movie)) {
+      setNominated(nominationList);
+    }
+  }
 
   useEffect(() => {
       // Append search term "t=<movie title>" to API_URL to perform a search
@@ -20,25 +29,22 @@ export default function Search(props) {
         const json = await res.json();
 
         if (json.Search) {
-          setResults(json.Search);
+          setMovies(json.Search);
           setLoading(false);
         }
       }
 
       getMovies(term);
     }, [term]);
-    console.log(results)
-    console.log(props.nominated)
+    console.log(movies)
+    console.log(nominated)
 
   return (
     <>
       <main>
         <Searchbar term={term} loading={loading} onSearch={(term) => setTerm(term)} />
         <div className="search_results">
-          <MovieList results={results} />
-        </div>
-        <div className="nominated_movies">
-          {props.nominated ? <MovieList results={props.nominated} /> : 'You haven\'t nominated any movies yet! Nominate up to 5 of your favorites for the Shoppies!'}
+          <MovieList movies={movies} handleNominationClick={addNomination} />
         </div>
       </main>
     </>
