@@ -22,6 +22,7 @@ export default function SearchBar(props) {
           value={props.value}
           onChange={e => props.setValue(e.target.value)}
         />
+        {/* Display loading icon when searching */}
         {props.loading && props.term ? 
           <i className="fas fa-sync"></i>
           :

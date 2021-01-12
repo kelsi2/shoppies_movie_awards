@@ -48,8 +48,6 @@ export default function Search(props) {
     setNominated(newNominationList);
   }
 
-  console.log(value)
-
   return (
     <>
       <main>
