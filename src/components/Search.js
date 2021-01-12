@@ -16,6 +16,10 @@ export default function Search() {
     // Append search term "t=<movie title>" to API_URL to perform a search
     const API_URL = `http://www.omdbapi.com/?s=${term}&type=movie&apikey=eb5b6c31`;
     
+    if (term === '') {
+      setMovies([])
+    }
+
     // Request movie data in json form and setResult state
     const getMovies = async() => {
       setLoading(true);

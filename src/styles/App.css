@@ -1,17 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+  --header-text-color: #B7A063;
+}
+
 body {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-family: 'Poppins', sans-serif;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Header styling */
+
+.app-header {
+  color: var(--header-text-color);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
+.trophy {
+  height: 5.5rem;
+  width: 3.5rem;
+}
+
+.section-rule {
+  border: none;
+  background-color: var(--header-text-color);
+  color: var(--header-text-color);
+  margin: auto;
+  height: 3px;
+  width: 45%;
+}
+
+/* Search styling */
+
+.search-form {
+  background-color: transparent;
+  border: 2px solid var(--secondary-color);
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: .5rem 1rem;
+}
+
+.search-form::placeholder {
+  color: #9399ee;
+}
+
+.search-form:focus {
+  outline: none;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* Loading is hidden by default until a get request is sent to omdb */
 .loading {
   visibility: hidden;
 }

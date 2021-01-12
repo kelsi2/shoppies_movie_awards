@@ -6,18 +6,16 @@ export default function SearchBar(props) {
   const [value, setValue] = useState('');
   // Debounce search for 400 ms before sending a request
   const term = useDebounce(value, 700);
-  // Perform the search only if something in the request term changes
-  const onSearch = useCallback(props.onSearch, [term]);
 
   useEffect(() => {
-    onSearch(term);
-  }, [term, onSearch]);
+    props.onSearch(term);
+  }, [term, props.onSearch]);
 
   return (
-    <section className='search'>
-      <form className='search_form' onSubmit={e => e.preventDefault()}>
+    <section>
+      <form onSubmit={e => e.preventDefault()}>
         <input
-          className='radius'
+          className='search-form'
           placeholder='Enter a movie title'
           name='search'
           type='text'

@@ -1,12 +1,15 @@
 import '../styles/App.css';
+import oscarIcon from '../images/oscarIcon.svg';
 import Search from './Search';
 
-function App(props) {
+function App() {
   return ( 
     <div className = "App" >
-      <header className = "App-header" >
-        <h1> Welcome to the Shoppies </h1> 
+      <header className = "app-header" >
+        <h1>The Shoppies</h1>
+        <img className="trophy" src={oscarIcon} alt="Oscars trophy" />
       </header>
+      <hr className="section-rule" />
       <main>
         <Search />
       </main>
