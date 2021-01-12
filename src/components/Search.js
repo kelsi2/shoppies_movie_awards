@@ -4,21 +4,19 @@ import MovieList from './MovieList';
 import Nominations from './Nominations';
 import MaxNominations from './MaxNominations';
 
-export default function Search() {
+export default function Search(props) {
   // Set state of search field and search results
   const [term, setTerm] = useState('');
   const [movies, setMovies] = useState([]);
   // Loading state for search results, set to false until search is in progress
   const [loading, setLoading] = useState(false);
   const [nominated, setNominated] = useState([]);
+  // Start with empty search value
+  const [value, setValue] = useState('');
   
   useEffect(() => {
     // Append search term "t=<movie title>" to API_URL to perform a search
     const API_URL = `http://www.omdbapi.com/?s=${term}&type=movie&apikey=eb5b6c31`;
-    
-    if (term === '') {
-      setMovies([])
-    }
 
     // Request movie data in json form and setResult state
     const getMovies = async() => {
@@ -34,8 +32,6 @@ export default function Search() {
     
     getMovies(term);
   }, [term]);
-  console.log(movies)
-  console.log(nominated)
   
   const addNomination = (movie) => {
     // Copy new nomination to the array
@@ -52,17 +48,23 @@ export default function Search() {
     setNominated(newNominationList);
   }
 
+  console.log(value)
+
   return (
     <>
       <main>
-        <Searchbar term={term} loading={loading} onSearch={(term) => setTerm(term)} />
+        <Searchbar value={value} setValue={setValue} term={term} loading={loading} onSearch={(term) => setTerm(term)} />
         <MaxNominations nominated={nominated} />
-        <div className="search-results">
-          <MovieList movies={movies} handleNominationClick={addNomination} nominated={nominated} />
-        </div>
-        <div className="nomination-results">
-          <Nominations movies={nominated} handleRemoveClick={removeNomination} />
-        </div>
+        <section className="movie-content">
+          <div className="search-results">
+            <h1 className="section-header">{value.length > 0 ? `Results for "${value}"` : `Enter a movie title to search`}</h1>
+            <MovieList movies={movies} handleNominationClick={addNomination} nominated={nominated} value={value} />
+          </div>
+          <div className="nomination-results">
+            <h1 className="section-header">Nominations</h1>
+            <Nominations movies={nominated} handleRemoveClick={removeNomination} />
+          </div>
+        </section>
       </main>
     </>
   );

@@ -6,13 +6,11 @@ function App() {
   return ( 
     <div className = "App" >
       <header className = "app-header" >
-        <h1>The Shoppies</h1>
+        <h1 className="header-text">The Shoppies</h1>
         <img className="trophy" src={oscarIcon} alt="Oscars trophy" />
       </header>
       <hr className="section-rule" />
-      <main>
         <Search />
-      </main>
     </div>
   );
 }

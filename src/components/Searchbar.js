@@ -1,15 +1,15 @@
-import {useEffect, useState, useCallback} from 'react';
+import {useEffect, useCallback} from 'react';
 import useDebounce from '../hooks/useDebounce';
 
 export default function SearchBar(props) {
-  // Start with empty search value
-  const [value, setValue] = useState('');
   // Debounce search for 400 ms before sending a request
-  const term = useDebounce(value, 700);
+  const term = useDebounce(props.value, 700);
+  // Perform the search only if something in the request term changes
+  const onSearch = useCallback(props.onSearch, [term]);
 
   useEffect(() => {
-    props.onSearch(term);
-  }, [term, props.onSearch]);
+    onSearch(term);
+  }, [term, onSearch]);
 
   return (
     <section>
@@ -19,8 +19,8 @@ export default function SearchBar(props) {
           placeholder='Enter a movie title'
           name='search'
           type='text'
-          value={value}
-          onChange={e => setValue(e.target.value)}
+          value={props.value}
+          onChange={e => props.setValue(e.target.value)}
         />
         {props.loading && props.term ? 
           <i className="fas fa-sync"></i>

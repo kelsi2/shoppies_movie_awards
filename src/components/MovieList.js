@@ -1,10 +1,16 @@
 import noImage from '../images/noImage.png';
 
 export default function MovieList(props) {
+  if (props.value === '') {
+    return (
+      []
+    )
+  }
+
   return (
     props.movies.map((movie) => (
       <>
-        <section key={movie.imdbID}>
+        <section className="movie-results" key={movie.imdbID}>
           <div className="img-container">
           {movie.Poster !== "N/A" ?
               <img src={movie.Poster} alt="Movie poster" />
