@@ -22,17 +22,17 @@ export default function MovieList(props) {
           </div>
           <div className="movie-info">
             <h2>{movie.Title}</h2>
-            <h6>{movie.Year}</h6>
+            <h4>{movie.Year}</h4>
+          <div>
+            {/* Disable nominate button if more 5 nominations or movie already nominated */}
+          {props.nominated.length >= 5 || props.nominated.includes(movie) ? 
+            <button className="btn" disabled>Nominate <i className="fas fa-heart"></i></button>
+            :
+            <button className="btn" onClick={() => props.handleNominationClick(movie)}>Nominate <i className="fas fa-heart"></i></button>
+          }
           </div>
-        </section>
-        <div className="btn">
-          {/* Disable nominate button if more 5 nominations or movie already nominated */}
-        {props.nominated.length >= 5 || props.nominated.includes(movie) ? 
-          <button disabled>Nominate <i className="fas fa-heart"></i></button>
-          :
-          <button onClick={() => props.handleNominationClick(movie)}>Nominate <i className="fas fa-heart"></i></button>
-        }
         </div>
+        </section>
       </>
     ))
   )

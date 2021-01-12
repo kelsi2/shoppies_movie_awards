@@ -2,8 +2,8 @@ import {useEffect, useCallback} from 'react';
 import useDebounce from '../hooks/useDebounce';
 
 export default function SearchBar(props) {
-  // Debounce search for 400 ms before sending a request
-  const term = useDebounce(props.value, 700);
+  // Debounce search for 1000 ms before sending a request
+  const term = useDebounce(props.value, 1000);
   // Perform the search only if something in the request term changes
   const onSearch = useCallback(props.onSearch, [term]);
 
@@ -14,20 +14,23 @@ export default function SearchBar(props) {
   return (
     <section>
       <form onSubmit={e => e.preventDefault()}>
-        <input
-          className='search-form'
-          placeholder='Enter a movie title'
-          name='search'
-          type='text'
-          value={props.value}
-          onChange={e => props.setValue(e.target.value)}
-        />
+        <div className="input-container">
+          <input
+            className='search-form'
+            placeholder='Movie title...'
+            name='search'
+            type='text'
+            value={props.value}
+            onChange={e => props.setValue(e.target.value)}
+          />
+          <i className="fas fa-search"></i>
         {/* Display loading icon when searching */}
         {props.loading && props.term ? 
           <i className="fas fa-sync"></i>
           :
           ''
         }
+        </div>
       </form>
     </section>
   )

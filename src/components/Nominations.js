@@ -14,7 +14,7 @@ export default function Nominations(props) {
   return (
     props.movies.map((movie) => (
       <>
-        <section key={movie.imdbID}>
+        <section className="movie-results" key={movie.imdbID}>
         <div className="img-container">
           {/* Use placeholder image if no poster available */}
           {movie.Poster !== "N/A" ?
@@ -23,14 +23,14 @@ export default function Nominations(props) {
               <img src={noImage} alt="No movie poster available" />
           }
           </div>
-          <div className="movie_info">
-            <h2>{movie.Title}</h2>
-            <h6>{movie.Year}</h6>
+          <div className="movie-info">
+              <h2>{movie.Title}</h2>
+              <h4>{movie.Year}</h4>
+            <div>
+              <button className="btn" onClick={() => props.handleRemoveClick(movie)}>Remove nomination <i className="fas fa-trash-alt"></i></button>
+            </div>
           </div>
         </section>
-        <div className="btn">
-          <button onClick={() => props.handleRemoveClick(movie)}>Remove nomination <i className="fas fa-trash-alt"></i></button>
-        </div>
       </>
   )))
 }
