@@ -20,38 +20,3 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
-
-/* Media queries */
-@media (max-width: 670px) {
-  .app-header {
-    padding: 0
-  }
-  .header-text {
-    font-size: 30px;
-  }
-  .trophy {
-    height: 3em;
-    width: 2em;
-  }
-  .section-rule {
-    width: 80%;
-  }
-  .banner {
-    font-size: 12px;
-  }
-  form {
-    width: 50vw;
-    margin: 0;
-    margin-left: 20px;
-  }
-  .movie-content {
-    margin: 0 7px 0 7px;;
-  }
-  .movie-info {
-    font-size: 12px;
-  }
-  .btn {
-    font-size: 12px;
-    padding: 5px 10px
-  }
-}

@@ -62,3 +62,10 @@ form {
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 600px) {
+  form {
+    width: 80%;
+    margin: 0;
+  }
+}

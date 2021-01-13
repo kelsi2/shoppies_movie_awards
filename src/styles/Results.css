@@ -71,3 +71,12 @@
   padding-right: 25px;
   text-align: center;
 }
+
+@media (max-width: 600px) {
+  .movie-content {
+    margin: 0 7px;
+  }
+  .movie-info {
+    font-size: 12px;
+  }
+}

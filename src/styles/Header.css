@@ -36,3 +36,24 @@
   text-align: center;
   padding: 0.25rem;
 }
+
+@media (max-width: 600px) {
+  .app-header {
+    padding: 0;
+  }
+  .header-text {
+    font-size: 30px;
+    text-align: center;
+    margin: 0.5em
+  }
+  .trophy {
+    height: 3em;
+    width: 2em;
+  }
+  .section-rule {
+    width: 90%;
+  }
+  .banner {
+    font-size: 12px;
+  }
+}
