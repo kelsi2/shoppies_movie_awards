@@ -1,0 +1,64 @@
+/* Search styling */
+
+form {
+  width: 25%;
+  margin-top: 1em;
+  margin-left: 2em;
+  padding: 1.5em;
+}
+
+.search-form {
+  background-color: transparent;
+  border: 2px solid var(--header-text-color);
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  width: 100%;
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+.search-form::placeholder {
+  color: var(--secondary-color);
+  opacity: 0.75;
+}
+
+.search-form:focus {
+  outline: none;
+  background-color: var(--primary-color);
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.fa-search {
+  position: absolute;
+  bottom: 7px;
+  right: -25px;
+  height: 24px;
+  opacity: 0.75;
+}
+
+.fa-sync {
+  position: absolute;
+  right: -60px;
+  bottom: 15px;
+  animation: rotate 2s linear infinite;
+}
+
+/* Loading is hidden by default until a get request is sent to omdb */
+.loading {
+  visibility: hidden;
+}
+
+/* Rotate loading icon */
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

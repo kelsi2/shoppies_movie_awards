@@ -1,5 +1,6 @@
 import {useEffect, useCallback} from 'react';
 import useDebounce from '../hooks/useDebounce';
+import '../styles/Search.css';
 
 export default function SearchBar(props) {
   // Debounce search for 1000 ms before sending a request

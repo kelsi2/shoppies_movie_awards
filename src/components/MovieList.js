@@ -1,12 +1,14 @@
 import noImage from '../images/noImage.png';
+import '../styles/Results.css';
+import '../styles/Button.css';
 
 export default function MovieList(props) {
   // If the search field is empty return no results
   if (props.value === '') {
     return (
       []
-    )
-  }
+    );
+  };
 
   return (
     props.movies.map((movie) => (
@@ -24,7 +26,7 @@ export default function MovieList(props) {
             <h2>{movie.Title}</h2>
             <h4>{movie.Year}</h4>
           <div>
-            {/* Disable nominate button if more 5 nominations or movie already nominated */}
+            {/* Disable nominate button if more than 5 nominations or movie already nominated */}
           {props.nominated.length >= 5 || props.nominated.includes(movie) ? 
             <button className="btn" disabled>Nominate</button>
             :

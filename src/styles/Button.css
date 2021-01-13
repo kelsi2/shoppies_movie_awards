@@ -1,0 +1,41 @@
+/* Button styling */
+
+.btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #f0932b;
+  color: var(--secondary-color);
+  border-radius: 50px;
+  padding: 10px 20px;
+  letter-spacing: 1px;
+  margin: 0 5px 10px 0;
+  font-size: 16px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #273c75;
+  font-weight: bold;
+  transform: translate(0, 0.25em);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  pointer-events: none;
+}
+
+.fa-trash-alt {
+  color: rgb(99, 95, 95);
+}
+
+.fa-heart {
+  color: rgb(233, 34, 34);
+}

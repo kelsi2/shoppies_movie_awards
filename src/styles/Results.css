@@ -1,0 +1,73 @@
+/* Search results and nominations container */
+
+.movie-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0.5rem;
+}
+
+/* Column styling */
+
+.search-results {
+  width: 50%;
+  flex: 1;
+  min-width: 300px;
+}
+
+.nomination-results {
+  width: 50%;
+  flex: 1;
+  min-width: 300px;
+}
+
+.section-header {
+  text-align: center;
+  color: var(--header-text-color);
+  font-family: var(--header-font);
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.instructions {
+  width: 65%;
+  margin: auto;
+  padding: 0.5em;
+  text-align: center;
+}
+
+/* Search results styling */
+
+.movie-results {
+  width: 100%;
+  margin: 0.1rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.img-container {
+  position: relative;
+  overflow: hidden;
+  width: 47%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.movie-results img {
+  box-sizing: border-box;
+  position: absolute;
+  height: 100%;
+  width: auto;
+}
+
+.movie-info {
+  position: relative;
+  overflow: hidden;
+  width: 53%;
+  padding: 5px;
+  padding-right: 25px;
+  text-align: center;
+}
