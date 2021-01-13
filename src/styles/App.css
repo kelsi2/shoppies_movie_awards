@@ -34,7 +34,6 @@ body {
   color: var(--header-text-color);
   font-family: var(--header-font);
   font-size: 50px;
-  padding-left: 1.5em;
 }
 
 .trophy {
@@ -55,105 +54,18 @@ body {
 /* Alert styling */
 
 .banner {
+  background-color: #6fcc99;
+  color: var(--primary-color);
   text-align: center;
-}
-
-.notification-container {
-  font-size: 14px;
-  box-sizing: border-box;
-  position: fixed;
-  top: 12px;
-  left: 12px;
-  transition: transform .6s ease-in;
-  animation: toast .7s
-}
-
-.notification {
-	background: #fff;
-	transition: .3s ease;
-	position: relative;
-	pointer-events: auto;
-	overflow: hidden;
-	margin: 0 0 6px;
-	padding: 30px;
-	margin-bottom: 15px;
-	width: 300px;
-	max-height: 100px;
-	border-radius: 3px 3px 3px 3px;
-	box-shadow: 0 0 10px #999;
-	color: #000;
-	opacity: .9;
-	background-position: 15px;
-	background-repeat: no-repeat;
-}
-
-.notification:hover {
-	box-shadow: 0 0 12px #fff;
-	opacity: 1;
-	cursor: pointer
-}
-
-.notification-title {
-	font-weight: 700;
-	font-size: 16px;
-	text-align: left;
-	margin-top: 0;
-	margin-bottom: 6px;
-  width: 300px;
-  height: 18px;
-}
-
-.notification-message {
-	margin: 0;
-	text-align: left;
-    height: 18px;
-    margin-left: -1px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.notification-image {
-    float: left;
-    margin-right: 15px;
-}
-
-.notification-image img {
-    width: 30px;
-    height: 30px;
-}
-
-.toast {
-  height: 50px;
-  width: 365px;
-	color: #fff;
-	padding: 20px 15px 10px 10px;
-}
-
-.notification-container button {
-	position: relative;
-	right: -.3em;
-	top: -.3em;
-	float: right;
-	font-weight: 700;
-	color: #fff;
-	outline: none;
-	border: none;
-	text-shadow: 0 1px 0 #fff;
-	opacity: .8;
-	line-height: 1;
-	font-size: 16px;
-	padding: 0;
-	cursor: pointer;
-	background: 0 0;
-	border: 0
+  padding: 1em;
 }
 
 /* Search styling */
 
 form {
-  width: 50%;
-  margin: auto;
+  width: 25%;
+  margin-top: 1em;
+  margin-left: 2em;
   padding: 1.5em;
 }
 
@@ -233,6 +145,13 @@ form {
   font-weight: 400;
 }
 
+.instructions {
+  width: 65%;
+  margin: auto;
+  padding: 0.5em;
+  text-align: center;
+}
+
 /* Search results styling */
 
 .movie-results {
@@ -283,6 +202,7 @@ form {
   font-size: 16px;
   display: inline-block;
   border: none;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -293,6 +213,12 @@ form {
 
 .btn:focus {
   outline: none;
+}
+
+.btn:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  pointer-events: none;
 }
 
 .fa-trash-alt {
@@ -312,15 +238,6 @@ form {
 @keyframes rotate {
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes toast {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
   }
 }
 

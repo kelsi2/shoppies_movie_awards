@@ -1,12 +1,12 @@
 import noImage from '../images/noImage.png';
 
 export default function Nominations(props) {
-  // Instuctions to display if no nominations
+  // Instructions to display if no nominations
   if (props.movies.length <= 0) {
     return (
       <>
-        <h3>Nominate up to 5 of your favorite movies for the Shoppies!</h3>
-        <h4>Get started by searching for a movie title.</h4>
+        <h3 className="instructions">Nominate up to 5 of your favorite movies for the Shoppies!</h3>
+        <h4 className="instructions">Get started by searching for a movie title.</h4>
       </>
     )
   }

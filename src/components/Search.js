@@ -2,7 +2,9 @@ import {useEffect, useState} from 'react';
 import Searchbar from './Searchbar';
 import MovieList from './MovieList';
 import Nominations from './Nominations';
-import MaxNominations from './MaxNominations';
+import MaxNominations from './MaxNominationsAlert';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Search(props) {
   // Set state of search field and search results
@@ -13,6 +15,15 @@ export default function Search(props) {
   const [nominated, setNominated] = useState([]);
   // Start with empty search value
   const [value, setValue] = useState('');
+
+  // Notify when nominations have been made successfully or nomination has been removed
+  const nominationToast = () => {
+    toast.info('Nomination successful!');
+  }
+
+  const removedToast = () => {
+    toast.error('Nomination removed.');
+  }
   
   useEffect(() => {
     // Append search term "t=<movie title>" to API_URL to perform a search
@@ -38,6 +49,7 @@ export default function Search(props) {
     const nominationList = [...nominated, movie];
     if (nominated.length <= 5 && !nominated.includes(movie)) {
       setNominated(nominationList);
+      nominationToast();
     }
   }
 
@@ -46,6 +58,7 @@ export default function Search(props) {
       nomination.imdbID !== movie.imdbID
     );
     setNominated(newNominationList);
+    removedToast();
   }
 
   return (

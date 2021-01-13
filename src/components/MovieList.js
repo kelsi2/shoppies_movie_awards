@@ -26,7 +26,7 @@ export default function MovieList(props) {
           <div>
             {/* Disable nominate button if more 5 nominations or movie already nominated */}
           {props.nominated.length >= 5 || props.nominated.includes(movie) ? 
-            <button className="btn" disabled>Nominate <i className="fas fa-heart"></i></button>
+            <button className="btn" disabled>Nominate</button>
             :
             <button className="btn" onClick={() => props.handleNominationClick(movie)}>Nominate <i className="fas fa-heart"></i></button>
           }
