@@ -43,12 +43,32 @@ export default function Search(props) {
     
     getMovies(term);
   }, [term]);
+
+   // Set nominations from localStorage
+   useEffect(() => {
+    const movieNominations = JSON.parse(
+      localStorage.getItem('nominations')
+    )
+
+    // If localStorage is empty set state to empty
+    if (movieNominations) {
+      setNominated(movieNominations);
+    } else {
+      setNominated([]);
+    }
+  }, [])
+
+  // Save nominations to localStorage
+  const saveToLocalStorage = (movies) => {
+    localStorage.setItem('nominations', JSON.stringify(movies));
+  }
   
   const addNomination = (movie) => {
     // Copy new nomination to the array and notify with success toast
     const nominationList = [...nominated, movie];
     if (nominated.length <= 5 && !nominated.includes(movie)) {
       setNominated(nominationList);
+      saveToLocalStorage(nominationList);
       nominationToast();
     }
   }
@@ -59,6 +79,7 @@ export default function Search(props) {
       nomination.imdbID !== movie.imdbID
     );
     setNominated(newNominationList);
+    saveToLocalStorage(newNominationList);
     removedToast();
   }
 
